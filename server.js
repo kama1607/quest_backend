@@ -24,7 +24,10 @@ db.authenticate().then(() =>{
     })
 
 //middleware 
-app.use(answerR, questR, taskR)    
+app.use(answerR)    
+app.use(questR)
+app.use(taskR)
+
 
 app.listen(PORT, () => {
     console.log(`Сервер запустился на ${PORT} порте ...`)

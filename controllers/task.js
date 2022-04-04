@@ -6,10 +6,13 @@ const Quest = require("../models/quest")
 
 const createTask = async(req, res) => {
     try{
+        console.log("Успешно")
+
         const rq = req.body
         const response = await task.create({
             quest_id: rq.quest_id,
             correct_answer_id: rq.correct_answer_id,
+            question: rq.question,
             latitude: rq.latitude,
             longitude: rq.longitude,
             score: rq.score,
@@ -18,16 +21,15 @@ const createTask = async(req, res) => {
         .then((data) => {
             const res = {
                 success: true, data: data,
-                message: "Задача создана"
-            }
+                message: "Задача создана !!!"}
             return res
         })
         .catch(error => {
-            const res = { success: false,
-            error: error }
+            const res = { success: false, error: error }
         })
-    res.json(response)
-    }catch(err){
+        res.json(response)
+    }
+    catch(err){
         console.log(err)
     }
 }
@@ -62,6 +64,7 @@ const updateTask = async(req, res) => {
         const taskUpdate = await task.update({
             quest_id: rq.quest_id,
             correct_answer_id: rq.correct_answer_id,
+            question:rq.question,
             latitude: rq.latitude,
             longitude: rq.longitude,
             score: rq.score,

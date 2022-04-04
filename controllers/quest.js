@@ -5,7 +5,9 @@ const createQuest = async(req, res) => {
         const rq = req.body
         const response = await quest.create({
             name: rq.name,
-            description: rq.description
+            description: rq.description,
+            createdAt: rq.createdAt
+
         })
         .then((data) => {
             const res = {

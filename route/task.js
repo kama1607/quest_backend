@@ -6,7 +6,7 @@ const taskControllers = require("../controllers/task")
 
 router.get("/tasks", taskControllers.getTasks)
 
-router.post("/taks", taskControllers.createTask)
+router.post("/tasks", taskControllers.createTask)
 
 router.put("/tasks/:id", taskControllers.updateTask)
 

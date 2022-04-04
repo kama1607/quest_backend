@@ -36,6 +36,14 @@ const Task = db.define("task", {
         }
     },
 
+    question: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notNull: true
+        }
+    },
+
     latitude: {
         type: DataTypes.STRING,
         allowNull: false,
